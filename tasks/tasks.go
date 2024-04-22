@@ -8,6 +8,7 @@ import (
 	"os"
 )
 
+// Task representa una tarea o nota. Posee un Identificador (ID), un contenido y puede estar marcada como completa o no, según queramos
 type Task struct {
 	ID       int    `json:"id"`
 	Content  string `json:"content"`
@@ -79,7 +80,6 @@ func SaveTask(file *os.File, tasks []Task) {
 }
 
 // CommpleteTask recibe un ID de tipo entero y un slice de tareas, y retorna el slice de tareas con el atributo complete modificado, en la tarea que posee el ID proporcionado por parametros.
-
 func CompleteTask(id int, tasks []Task) []Task {
 	for i, v := range tasks {
 		if tasks[i].ID == id {
